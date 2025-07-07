@@ -652,7 +652,9 @@ app.get("/api/admin/patients", async (req, res) => {
   const patients = await Patient.find().populate("doctorId")
   res.json({ patients })
 })
-
+app.get("/", (req, res) => {
+  res.redirect("/admin");
+});
 // Connect to MongoDB and start server
 mongoose
   .connect(process.env.MONGO_URI)
